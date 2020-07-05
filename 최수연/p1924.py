@@ -17,3 +17,5 @@ else:
 
 
 print(getDay(sum%7))
+
+

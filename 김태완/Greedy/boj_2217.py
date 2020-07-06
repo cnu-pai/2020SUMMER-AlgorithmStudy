@@ -11,10 +11,17 @@ for _ in range(rope_number):
 
 rope_capability.sort(reverse = True)
 
-for i in range(rope_number):
-    new_weight = rope_capability[i] * (i+1)
-    if new_weight > weight:
-        weight = new_weight
+# upgraded : more pythonic
+print(max(rope_capability[i]*(i+1) for i in range(rope_number)))
 
-print(weight)
+# previous one
+
+# for i in range(rope_number):
+#     new_weight = rope_capability[i] * (i+1)
+#     if new_weight > weight:
+#         weight = new_weight
+#
+# print(weight)
+
+
 

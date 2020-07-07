@@ -1,3 +1,7 @@
+# https://www.acmicpc.net/problem/11399
+# User ID : thornsal
+# Greedy
+
 n = int(input())
 times = list(map(int,input().split(' ')))
 times.sort()

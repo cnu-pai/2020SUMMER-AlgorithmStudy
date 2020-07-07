@@ -1,0 +1,22 @@
+import java.util.*;
+
+public class Main {
+   public static void main(String args[]) {
+      Scanner input = new Scanner(System.in);
+      int N = input.nextInt();
+      int M = input.nextInt();
+      int [] armor = new int[N];
+      for(int i = 0; i < N; i++) {
+         armor[i] = input.nextInt();
+      }
+      int cnt = 0;
+      for(int i = 0; i < N; i++) {
+         for (int j = i + 1; j < N; j++) {
+            if(armor[i] + armor[j] == M) {
+               cnt++;
+            }
+         }
+      }
+      System.out.println(cnt);
+   }
+}

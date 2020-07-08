@@ -1,0 +1,47 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		int scene = 1;
+		while(true) {
+			int FLAG = input.nextInt();
+			input.nextLine();
+			if(FLAG == 0) {
+				break;
+			}
+			
+			int people = FLAG;
+			String [] name = new String[people];
+			
+			for(int i = 0; i < people; i++) {
+				name[i] = input.nextLine();
+			}
+			
+			int [] num = new int[2 * people - 1];
+			String [] a_or_b = new String[2 * people - 1];
+			for(int i = 0; i < 2 * people - 1; i++) {
+				num[i] = input.nextInt();
+				a_or_b[i] = input.next();
+			}
+			
+			int [] check = new int[people];
+			for(int i = 0; i < 2 * people - 2; i++) {
+				for(int j = i + 1; j < 2 * people - 1; j++) {
+					if(num[i] == num[j]) {
+						check[num[i] - 1] = 1;
+						break;
+					}
+				}
+			}
+			
+			for(int i = 0; i < people; i++) {
+				if(check[i] != 1) {
+					System.out.println(scene + " " + name[i]);
+					break;
+				}
+			}
+			scene++;
+ 		}
+	}
+}

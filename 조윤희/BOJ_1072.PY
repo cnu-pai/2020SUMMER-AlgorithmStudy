@@ -13,4 +13,4 @@ else:
         if floor(100*ty/tx)>z:
             max=mid-1
         else: min=mid+1
-    print(max+1) 
+    print(max+1)  

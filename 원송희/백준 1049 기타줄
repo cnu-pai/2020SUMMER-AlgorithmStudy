@@ -1,0 +1,20 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		int N = input.nextInt();
+		int M = input.nextInt();
+		int [] pack = new int[M];
+		int [] only_one = new int[M];
+		for(int i = 0; i < M; i++) {
+			pack[i] = input.nextInt();
+			only_one[i] = input.nextInt();
+		}
+		Arrays.sort(pack);
+		Arrays.sort(only_one);
+		int min = ((N / 6) + 1) * pack[0] < N * only_one[0] ? ((N / 6) + 1) * pack[0] : N * only_one[0];
+		min = min < ((N / 6)) * pack[0] + (N % 6) * only_one[0] ? min : ((N / 6)) * pack[0] + (N % 6) * only_one[0];
+        System.out.println(min);
+ 	}
+}

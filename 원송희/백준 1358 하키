@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		int W = input.nextInt();
+		int H = input.nextInt();
+		int X = input.nextInt();
+		int Y = input.nextInt();
+		int P = input.nextInt();
+		int [] x_coor = new int [P];
+		int [] y_coor = new int [P];
+		for(int i = 0; i < P; i++) {
+			x_coor[i] = input.nextInt();
+			y_coor[i] = input.nextInt();
+		}
+		int cnt = 0;
+		for(int i = 0; i < P; i++) {
+			if(x_coor[i] < X || y_coor[i] < Y) {
+				if(Math.pow(x_coor[i] - X, 2) + Math.pow(Y - y_coor[i] + (H / 2), 2) <= Math.pow(H / 2, 2)) {
+					cnt++;
+				}
+			}
+			else if(x_coor[i] > X + W || y_coor[i] > Y + H) {
+				if(Math.pow(x_coor[i] - (X + W), 2) + Math.pow(Y - y_coor[i] + (H / 2), 2) <= Math.pow(H / 2, 2)) {
+					cnt++;
+				}	
+			}
+			else {
+				if(x_coor[i] >= X && x_coor[i] <= X + W && y_coor[i] >= Y && y_coor[i] <= Y + H) {
+					cnt++;
+				}	
+			}
+		}
+		System.out.println(cnt);
+ 	}
+}

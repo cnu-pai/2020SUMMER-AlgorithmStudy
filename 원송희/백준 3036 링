@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		int N = input.nextInt();
+		int [] circle = new int[N];
+		String [] answer = new String[N - 1];
+		circle[0] = input.nextInt();
+		for(int i = 1; i < N; i++) {
+			circle[i] = input.nextInt();
+			int gcd;
+			if(circle[0] >= circle[i]) {
+				gcd = to_gcd(circle[0], circle[i]);
+			}
+			else {
+				gcd = to_gcd(circle[i], circle[0]);
+			}
+			answer[i - 1] = (circle[0] / gcd) + "/" + (circle[i] / gcd);
+		}
+		
+		for(int i = 0; i < N - 1; i++) {
+			System.out.println(answer[i]);
+		}
+	}
+	
+	public static int to_gcd(int a, int b) {
+        while(b > 0) {
+            int temp = a;
+            a = b;
+            b = temp % b;
+        }
+        return a;
+    }
+}

@@ -20,5 +20,5 @@ for i in range(len(arr)): #팔린 책 수
         if max_arr>arr[val.index(max_val)]:
             max_arr = arr[val.index(max_val)]
     except Exception as e: #없우면 종료
-        break
+        break 
 print(max_arr)

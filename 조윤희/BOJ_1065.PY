@@ -1,16 +1,18 @@
 import sys
-from math import floor #버림함수
 input=sys.stdin.readline
-x,y=map(int,input().split())
-z=floor(100*y/x)
-min,max=0,1000000000  #이긴 게임 수
-if z>=99: print(-1)
-else:
-    while min<=max:
-        mid=(min+max)//2
-        tx=x+mid
-        ty=y+mid
-        if floor(100*ty/tx)>z:
-            max=mid-1
-        else: min=mid+1
-    print(max+1)  
+def Han(n):
+    cnt = 0
+    if (n < 100):
+        return n
+    else:
+        for i in range(100,(n+1)):
+            hund = (i//100)
+            ten = ((i%100)//10)
+            one = ((i%100)%10)
+ 
+            if ((hund - ten) == (ten - one)):
+        cnt += 1
+        return (99+cnt)
+ 
+inp = int(input())
+print(Han(inp))

@@ -15,4 +15,4 @@ def Han(n):
         return (99+cnt)
  
 inp = int(input())
-print(Han(inp)) 
+print(Han(inp))  

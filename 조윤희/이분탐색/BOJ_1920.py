@@ -21,4 +21,4 @@ def search(a,b):
 a.sort() #오름차순 정렬 후 이진탐색!!
 
 for x in range(m):
-    print(search(a,b[x]))
+    print(search(a,b[x])) 

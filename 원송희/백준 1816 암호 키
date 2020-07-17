@@ -1,0 +1,48 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		int N = input.nextInt();
+		long[] factor = new long[1000001];
+
+    // 에라토스테네스의 체 시작
+		for(int i = 2; i < factor.length; i++) {
+			factor[i] = i;
+		}
+		for(int i = 2; i * i < factor.length; i++) {
+			if(factor[i] == i) {
+				for(int j = i * i; j < factor.length; j += i) {
+					if(factor[j] == j) {
+						factor[j] = i;
+					}
+				}
+			}
+		}
+    // 에라토스테네스의 체 끝
+    
+		Vector<Integer> vec = new Vector<>(1);
+		for(int i = 0; i < factor.length; i++) {
+			if(factor[i] == i) {
+				vec.addElement(i);
+			}
+		}
+
+		for(int i = 0; i < N; i++) {
+			long num = input.nextLong();
+			boolean isPrime = true;
+			for(int k = 1; k < vec.size(); k++) {
+				if(num % vec.elementAt(k) == 0) {
+					isPrime = false;
+					break;
+				}
+			}
+			if(isPrime == true) {
+				System.out.println("YES");
+			}
+			else {
+				System.out.println("NO");
+			}
+		}
+	}
+}

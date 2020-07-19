@@ -1,0 +1,29 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		int x_coor = input.nextInt();
+		int y_coor = input.nextInt();
+		int gcd = gcd(x_coor, y_coor);
+		System.out.println(x_coor + y_coor - gcd);
+	}
+
+	public static int gcd(int a, int b) {
+		int max, min;
+		if(a > b) {
+			max = a;
+			min = b;
+		}
+		else {
+			max = b;
+			min = a;
+		}
+		while(min > 0) {
+			int temp = max;
+			max = min;
+			min = temp % min;
+		}
+		return max;
+	}
+}

@@ -1,0 +1,15 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		int N = input.nextInt();
+		long [] answer = new long[100];
+		answer[1] = 1;
+		answer[2] = 1;
+		for(int i = 3; i < 100; i++) {
+			answer[i] = answer[i - 1] + answer[i - 2];
+		}
+		System.out.println(answer[N]);
+	}
+}

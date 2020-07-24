@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		int testcase = input.nextInt();
+		int [] fibo = new int[50];
+		fibo[0] = 0;
+		fibo[1] = 1;
+		fibo[2] = 1;
+		for(int i = 3; i < fibo.length; i++) {
+			fibo[i] = fibo[i - 1] + fibo[i - 2];
+		}
+		for(int i = 0; i < testcase; i++) {
+			int num = input.nextInt();
+			if(num == 0) {
+				System.out.println("1 0");
+			}
+			else if(num == 1) {
+				System.out.println("0 1");
+			}
+			else {
+				System.out.println(fibo[num - 1] + " " + fibo[num]);	
+			}
+		}
+	}
+}

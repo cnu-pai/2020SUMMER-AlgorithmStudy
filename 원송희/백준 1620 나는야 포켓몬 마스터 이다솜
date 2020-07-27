@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		int N = input.nextInt();
+		int problem = input.nextInt();
+		HashMap<String, Integer> map = new HashMap<>();
+		String [] monster = new String[N];
+		for(int i = 0; i < N; i++) {
+			monster[i] = input.next();
+			map.put(monster[i], i + 1);
+		}
+		for(int i = 0; i < problem; i++) {
+			if(input.hasNextInt()) {
+				System.out.println(monster[input.nextInt() - 1]);
+			}
+			else {
+				System.out.println(map.get(input.next()));
+			}
+		}
+	}
+}

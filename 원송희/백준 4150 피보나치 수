@@ -1,0 +1,27 @@
+import java.util.*;
+import java.math.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		long N = input.nextLong();
+		BigInteger zero = BigInteger.ZERO;
+		BigInteger one = BigInteger.ONE;
+		if(N == 0) {
+			System.out.println(zero);
+		}
+		else if(N == 1) {
+			System.out.println(one);
+		}
+		else {
+			BigInteger answer;
+			for(int i = 0; i < N; i++) {
+				answer = zero.add(one);
+				zero = one;
+				one = answer;
+			}
+			answer = zero;
+			System.out.println(answer);
+		}
+	}
+}

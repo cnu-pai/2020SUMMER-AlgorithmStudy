@@ -1,0 +1,48 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		int testcase = input.nextInt();
+		int[] sosu = new int[1229];
+		int cnt = 0;
+		for (int i = 2; i <= 10000; i++) {
+			boolean FLAG = true;
+			for (int j = 2; j * j <= i; j++) {
+				if (i % j == 0) {
+					FLAG = false;
+				}
+			}
+			if (FLAG) {
+				sosu[cnt++] = i;
+			}
+		}
+		for (int i = 0; i < testcase; i++) {
+			int N = input.nextInt();
+			int index = 0;
+			int temp = N / 2;
+			for (int j = 0; j < 1229; j++) {
+				if (temp < sosu[j + 1] && temp >= sosu[j]) {
+					index = j;
+					break;
+				}
+			}
+			if (temp == sosu[index]) {
+				System.out.println(sosu[index] + " " + sosu[index]);
+			} else if (N == sosu[index] + sosu[index + 1]) {
+				System.out.println(sosu[index] + " " + sosu[index + 1]);
+			} else {
+				loop:
+				for (int k = index; k >= 0; k--) {
+					int rest = N - sosu[k];
+					for (int j = k + 1; j < 1229; j++) {
+						if (rest == sosu[j]) {
+							System.out.println(sosu[k] + " " + sosu[j]);
+							break loop;
+						}
+					}
+				}
+			}
+		}
+	}
+}

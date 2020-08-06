@@ -1,0 +1,16 @@
+#include <iostream>
+#include <algorithm>
+#include <stdio.h>
+
+using namespace std;
+int a[20001];
+int main()
+{
+    int N;
+    scanf("%d", &N);
+    for (int i = 0; i < N; i++) {
+        scanf("%d", a + i);
+    }
+    sort(a, a + N);
+    printf("%d", a[(N - 1) >> 1]);
+}

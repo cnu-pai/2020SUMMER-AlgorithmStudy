@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		int N = input.nextInt();
+		int A = input.nextInt();
+		int D = input.nextInt();
+		int [] people = new int[N];
+		for(int i = 0; i < N; i++) {
+			people[i] = input.nextInt();
+		}
+		int present = A;
+		int cnt = 0;
+		for(int i = 0; i < N; i++) {
+			if(present == people[i]) {
+				cnt++;
+				present += D;
+			}
+		}
+		System.out.println(cnt);
+ 	}
+}

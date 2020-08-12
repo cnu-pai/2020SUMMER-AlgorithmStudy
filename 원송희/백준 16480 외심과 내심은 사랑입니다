@@ -1,0 +1,13 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		long R = input.nextLong();
+		long r = input.nextLong();
+		System.out.println(R * (R - 2*r));
+	}
+}
+
+
+// 오일러의 법칙

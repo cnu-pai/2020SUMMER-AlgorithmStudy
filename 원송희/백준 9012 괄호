@@ -1,0 +1,36 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		int testcase = input.nextInt();
+		
+		for (int i = 0; i < testcase; i++) {
+			String s = input.next();
+			if(checking(s) == true) {
+				System.out.println("YES");
+			}
+			else {
+				System.out.println("NO");
+			}
+		}
+	}
+	
+	public static boolean checking(String s) {
+		Stack<Integer> stack = new Stack<>();
+		for(int i = 0; i < s.length(); i++) {
+			if(s.charAt(i) == '(') {
+				stack.push(5);
+			}
+			else {
+				if(stack.empty()) {
+					return false;
+				}
+				else {
+					stack.pop();
+				}
+			}
+		}
+		return stack.empty();
+	}
+}

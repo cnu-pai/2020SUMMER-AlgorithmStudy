@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		int testcase = input.nextInt();
+		for (int i = 0; i < testcase; i++) {
+			int N = input.nextInt();
+			int[] num = new int[N];
+			for (int j = 0; j < N; j++) {
+				num[j] = input.nextInt();
+			}
+			Arrays.sort(num);
+			int len = N * (N - 1) / 2;
+			int [] gcd_arr = new int[len];
+			int index = 0;
+			for(int j = 0; j < N - 1; j++) {
+				for(int k = j + 1; k < N; k++) {
+					gcd_arr[index] = gcd(num[j], num[k]);
+					index++;
+				}
+			}
+			long sum = 0;
+			for(int j = 0; j < len; j++) {
+				sum += gcd_arr[j];
+			}
+			System.out.println(sum);
+		}
+	}
+
+	private static int gcd(int a, int b) {
+		int temp;
+		while (b != 0) {
+			temp = a;
+			a = b;
+			b = temp % b;
+		}
+		return a;
+	}
+}

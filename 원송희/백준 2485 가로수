@@ -1,0 +1,46 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		int N = input.nextInt();
+		int[] coor = new int[N];
+		for (int i = 0; i < N; i++) {
+			coor[i] = input.nextInt();
+		}
+		int[] distance = new int[N - 1];
+		for (int i = 0; i < N - 1; i++) {
+			distance[i] = coor[i + 1] - coor[i];
+		}
+		int GCD = gcd(distance);
+		int cnt = 0;
+		for(int i = coor[0]; i <= coor[N - 1]; i += GCD) {
+			cnt++;
+		}
+		System.out.println(cnt - N);
+	}
+
+	private static int gcd(int a, int b) {
+		int temp;
+		while (b != 0) {
+			temp = a;
+			a = b;
+			b = temp % b;
+		}
+
+		return a;
+	}
+
+	public static int gcd(int[] array) {
+		int result;
+
+		if (array.length <= 1)
+			return array[0];
+
+		result = gcd(array[0], array[1]);
+		for (int i = 2; i < array.length; ++i)
+			result = gcd(result, array[i]);
+
+		return result;
+	}
+}

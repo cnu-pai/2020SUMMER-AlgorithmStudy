@@ -1,0 +1,24 @@
+import java.util.*;
+
+public class Main {
+	static int answer = 0;
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		long min = input.nextLong();
+		long max = input.nextLong();
+		howMany(4, min, max);
+		howMany(7, min, max);
+		System.out.println(answer);
+	}
+	
+	public static void howMany(long a, long min, long max) {
+		if(a > max) {
+			return;
+		}
+		if(min <= a && a <= max) {
+			answer++;
+		}
+		howMany(a * 10 + 4, min, max);
+		howMany(a * 10 + 7, min, max);
+	}
+}

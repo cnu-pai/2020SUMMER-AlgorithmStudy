@@ -1,0 +1,17 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		int hour = input.nextInt();
+		int minute = input.nextInt();
+		int time = input.nextInt();
+		int temp = minute + time;
+		hour = hour + temp / 60;
+		if(hour > 23) {
+			hour %= 24;
+		}
+		minute = temp % 60;
+		System.out.println(hour + " " + minute);
+	}
+}

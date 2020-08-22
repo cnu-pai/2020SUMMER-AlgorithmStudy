@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		int N = input.nextInt();
+		int howMany = input.nextInt();
+		int index = input.nextInt();
+		int[] number = new int[N];
+		for (int i = 0; i < N; i++) {
+			number[i] = input.nextInt();
+		}
+		index = index % N;
+		int sum = 0;
+		if (index == 0) {
+			index = N - 1;
+		} else {
+			index--;
+		}
+		for (int i = 0; i < howMany; i++) {
+			sum += number[index];
+			if (index == N - 1) {
+				index = 0;
+			} else {
+				index++;
+			}
+		}
+		System.out.println(sum);
+	}
+}

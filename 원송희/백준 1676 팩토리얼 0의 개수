@@ -1,0 +1,13 @@
+import java.util.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		int N = input.nextInt();
+		int five = 0;
+		for(int i = 5; i <= N; i *= 5) {
+			five += N / i;
+		}
+		System.out.println(five);
+	}
+}

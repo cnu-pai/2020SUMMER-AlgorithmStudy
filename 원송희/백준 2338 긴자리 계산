@@ -1,0 +1,15 @@
+import java.math.BigInteger;
+import java.util.*;
+
+public class Main {
+	public static void main(String args[]) {
+		Scanner input = new Scanner(System.in);
+		String A = input.next();
+		String B = input.next();
+		BigInteger a = new BigInteger(A);
+		BigInteger b = new BigInteger(B);
+		System.out.println(a.add(b));
+		System.out.println(a.subtract(b));
+		System.out.println(a.multiply(b));
+	}
+}
